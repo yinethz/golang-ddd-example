@@ -1,0 +1,36 @@
+{{define "index"}}
+{{template "header"}}
+
+<a name="" id="" class="btn btn-primary" href="/tmpl/empleados/create" role="button">
+Agregar empleado
+</a>
+<br/>
+<br/>
+
+        <table class="table">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+
+          <tbody>
+          {{range.}}
+              <tr>
+                  <td scope="row">{{.Id}}</td>
+                  <td>{{.Nombre}}</td>
+                  <td>{{.Correo}}</td>
+                  <td>
+                  <a name="" id="" class="btn btn-warning" href="/tmpl/empleados/edit?id={{.Id}}" role="button">Editar</a>
+                  
+                  <a name="" id="" class="btn btn-danger" href="/tmpl/empleados/delete?id={{.Id}}" role="button">Borrar</a>
+                  </td>
+              </tr>
+            {{end}}
+          </tbody>
+      </table>
+{{template "footer"}}
+{{end}}
