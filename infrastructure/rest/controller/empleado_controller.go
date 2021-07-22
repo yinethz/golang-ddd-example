@@ -17,6 +17,7 @@ func NewRoutingEmpleadoController(app *fiber.App, ap application.EmpleadoAppInte
 	ctr := &EmpleadoController{
 		ap: ap,
 	}
+	//crea el enrutamiento para el servicio rest de empleados
 	routing(app, ctr)
 }
 
@@ -66,6 +67,7 @@ func (c *EmpleadoController) SearchById(ctx *fiber.Ctx) error {
 }
 
 func (c *EmpleadoController) SearchAll(ctx *fiber.Ctx) error {
+	//utiliza la aplicació n para haceer las consultas necesarias
 	res := c.ap.SearchAll()
 	if len(res) <= 0 {
 		ctx.Status(204)

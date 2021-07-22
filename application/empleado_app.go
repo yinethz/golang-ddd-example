@@ -5,6 +5,7 @@ import (
 	"github.com/yinethz/golang-ddd-example/domain/repository"
 )
 
+//la aplicación es un envoltorio del repositorio que contiene la logica
 type empleadoApp struct {
 	rep repository.EmpleadoRepository
 }

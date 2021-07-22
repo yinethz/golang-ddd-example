@@ -21,6 +21,7 @@ func NewRoutingEmpleadoView(app *fiber.App, ap application.EmpleadoAppInterface)
 	ctr := &EmpleadoView{
 		ap: ap,
 	}
+	//crea el enrutamiento para las vistas que reenderizan las plantillas
 	routing(app, ctr)
 }
 func routing(app *fiber.App, ctr *EmpleadoView) {
@@ -46,7 +47,9 @@ func routing(app *fiber.App, ctr *EmpleadoView) {
 }
 
 func (c *EmpleadoView) Index(ctx *fiber.Ctx) error {
+	//utiliza aplicación para hacer las consultas correspondientes
 	data := c.ap.SearchAll()
+	//reenderiza a la plantilla con la lista devuelta en la consulta
 	return ctx.Render("index", data)
 }
 func (c *EmpleadoView) Create(ctx *fiber.Ctx) error {
